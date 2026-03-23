@@ -538,34 +538,22 @@ canvas {
       <!-- Tab: Treinos -->
       <div id="tab-workouts" class="tab-content">
         <div class="menu">
-          <div class="menu-card" onclick="openWorkout('costas')">
+          <div class="menu-card" onclick="openWorkout('gluteos')">
             <div class="menu-card-header">
-              <div class="menu-card-icon" style="color: #3b82f6;"><i class="fas fa-user-ninja"></i></div>
-              <div class="menu-card-content"><h2>Seg/Qui — Costas &amp; Bíceps</h2><p>7 exercícios</p></div>
+              <div class="menu-card-icon" style="color: #ec4899;"><i class="fas fa-fire-alt"></i></div>
+              <div class="menu-card-content"><h2>Terça e Sexta — Glúteos &amp; Quadríceps</h2><p>6 exercícios</p></div>
             </div>
           </div>
-          <div class="menu-card" onclick="openWorkout('peito')">
+          <div class="menu-card" onclick="openWorkout('superiores')">
             <div class="menu-card-header">
-              <div class="menu-card-icon" style="color: #ef4444;"><i class="fas fa-dumbbell"></i></div>
-              <div class="menu-card-content"><h2>Terça — Peito &amp; Tríceps</h2><p>7 exercícios</p></div>
+              <div class="menu-card-icon" style="color: #3b82f6;"><i class="fas fa-dumbbell"></i></div>
+              <div class="menu-card-content"><h2>Quarta e Sábado — Superiores</h2><p>6 exercícios</p></div>
             </div>
           </div>
-          <div class="menu-card" onclick="openWorkout('perna')">
+          <div class="menu-card" onclick="openWorkout('coxas')">
             <div class="menu-card-header">
               <div class="menu-card-icon" style="color: #10b981;"><i class="fas fa-running"></i></div>
-              <div class="menu-card-content"><h2>Quarta — Perna</h2><p>7 exercícios</p></div>
-            </div>
-          </div>
-          <div class="menu-card" onclick="openWorkout('ombro')">
-            <div class="menu-card-header">
-              <div class="menu-card-icon" style="color: #f59e0b;"><i class="fas fa-user-shield"></i></div>
-              <div class="menu-card-content"><h2>Sexta — Ombros</h2><p>8 exercícios</p></div>
-            </div>
-          </div>
-          <div class="menu-card" onclick="openWorkout('sabado')">
-            <div class="menu-card-header">
-              <div class="menu-card-icon" style="color: #a855f7;"><i class="fas fa-bolt"></i></div>
-              <div class="menu-card-content"><h2>Sábado — Tríceps &amp; Bíceps</h2><p>7 exercícios</p></div>
+              <div class="menu-card-content"><h2>Quinta e Domingo — Coxas &amp; Quadríceps</h2><p>6 exercícios</p></div>
             </div>
           </div>
         </div>
@@ -624,75 +612,43 @@ canvas {
 <script>
 // ==== DADOS DOS TREINOS ====
 const workoutsData = {
-  costas: {
-    name: "Seg/Qui — Costas & Bíceps",
-    icon: "fas fa-user-ninja",
+  gluteos: {
+    name: "Terça e Sexta — Glúteos & Quadríceps",
+    icon: "fas fa-fire-alt",
+    color: "#ec4899",
+    exercises: [
+      { name: "Abdução de Quadril Crossover", series: 4, reps: "12", weight: 6, rest: 60, videos: ["https://fitbod.me/exercises/cable-hip-abduction"] },
+      { name: "Cadeira Abdutora", series: 3, reps: "12", weight: 27, rest: 60, videos: ["https://fitbod.me/exercises/machine-hip-abductor"] },
+      { name: "Agachamento Sumo com Halter", series: 3, reps: "12", weight: 10, rest: 60, videos: ["https://fitbod.me/exercises/single-dumbbell-sumo-squat"] },
+      { name: "Glúteo 4 Apoios Perna Estendida", series: 3, reps: "12", weight: 6, rest: 60, videos: ["https://fitbod.me/exercises/straight-leg-kickback"] },
+      { name: "Cadeira Adutora", series: 3, reps: "12", weight: 32, rest: 60, videos: ["https://fitbod.me/exercises/machine-hip-adductor"] },
+      { name: "Panturrilha Press", series: 4, reps: "12", weight: 85, rest: 60, videos: ["https://fitbod.me/exercises/calf-press"] }
+    ]
+  },
+  superiores: {
+    name: "Quarta e Sábado — Superiores",
+    icon: "fas fa-dumbbell",
     color: "#3b82f6",
     exercises: [
-      { name: "Wide Grip Lat Pulldown", series: 4, reps: "10", weight: 66, rest: 60, videos: ["https://fitbod.me/exercises/wide-grip-lat-pulldown"] },
-      { name: "Remada Curvada com barra", series: 4, reps: "12", weight: 50, rest: 60, videos: ["https://fitbod.me/exercises/reverse-grip-barbell-bent-over-row"] },
-      { name: "Remada baixa (Cable Row)", series: 3, reps: "10", weight: 65, rest: 60, videos: ["https://fitbod.me/exercises/cable-row"] },
-      { name: "Straight-Arm Pulldown", series: 3, reps: "15", weight: 50, rest: 60, videos: ["https://fitbod.me/exercises/straight-arm-pulldown", "https://fitbod.me/exercises/ez-bar-pjr-pull-over"] },
-      { name: "Remada unilateral com halter", series: 3, reps: "10", weight: 28, rest: 60, videos: ["https://fitbod.me/exercises/dumbbell-row"] },
-      { name: "Rosaca direta", series: 3, reps: "10", weight: 26, rest: 60, videos: ["https://fitbod.me/exercises/barbell-curl"] },
-      { name: "Rosaca martelo", series: 3, reps: "8+8", weight: 14, rest: 60, videos: ["https://fitbod.me/exercises/hammer-curls"] }
+      { name: "Elevação Lateral com Halteres", series: 3, reps: "12", weight: 4, rest: 60, videos: ["https://fitbod.me/exercises/dumbbell-shoulder-raise"] },
+      { name: "Desenvolvimento com Halteres", series: 3, reps: "8", weight: 6, rest: 60, videos: ["https://fitbod.me/exercises/standing-dumbbell-shoulder-press"] },
+      { name: "Elevação Lateral e Frontal com Halteres", series: 3, reps: "10", weight: 3, rest: 60, videos: ["https://fitbod.me/exercises/dumbbell-lateral-raise-to-front-raise"] },
+      { name: "Remada Baixa Pegada Aberta", series: 3, reps: "12", weight: 30, rest: 60, videos: ["https://fitbod.me/exercises/cable-row"] },
+      { name: "Pulldown", series: 3, reps: "12", weight: 15, rest: 60, videos: ["https://fitbod.me/exercises/straight-arm-pulldown"] },
+      { name: "Tríceps Francês", series: 3, reps: "12", weight: 9, rest: 60, videos: ["https://fitbod.me/exercises/standing-dumbbell-tricep-extension"] }
     ]
   },
-  peito: {
-    name: "Terça — Peito & Tríceps",
-    icon: "fas fa-dumbbell",
-    color: "#ef4444",
-    exercises: [
-      { name: "Manguito rotador", series: 3, reps: "12", weight: 0, rest: 10, videos: ["https://fitbod.me/exercises/loop-band-shoulder-internal-rotation", "https://fitbod.me/exercises/cable-shoulder-external-rotation", "https://fitbod.me/exercises/cable-shoulder-external-rotation-at-90"] },
-      { name: "Supino Inclinado com halter", series: 4, reps: "12", weight: 22, rest: 60, videos: ["https://fitbod.me/exercises/dumbbell-incline-bench-press"] },
-      { name: "Supino reto com halter", series: 4, reps: "12", weight: 22, rest: 60, videos: ["https://fitbod.me/exercises/dumbbell-bench-press"] },
-      { name: "Crucifixo adutor no aparelho", series: 3, reps: "12", weight: 25, rest: 60, videos: ["https://fitbod.me/exercises/cable-crossover-fly"] },
-      { name: "Crucifixo voador", series: 3, reps: "12", weight: 66, rest: 60, videos: ["https://fitbod.me/exercises/machine-fly"] },
-      { name: "Dumbbell Kickbacks + Extension", series: 3, reps: "10", weight: 25, rest: 60, videos: ["https://fitbod.me/exercises/dumbbell-kickbacks", "https://fitbod.me/exercises/standing-dumbbell-tricep-extension"] },
-      { name: "Tríceps no banco com barra", series: 3, reps: "15", weight: 26, rest: 60, videos: ["https://fitbod.me/exercises/skullcrusher"] }
-    ]
-  },
-  perna: {
-    name: "Quarta — Perna",
+  coxas: {
+    name: "Quinta e Domingo — Coxas & Quadríceps",
     icon: "fas fa-running",
     color: "#10b981",
     exercises: [
-      { name: "Cadeira adutora", series: 3, reps: "15", weight: 41, rest: 60, videos: ["https://fitbod.me/exercises/machine-hip-abductor"] },
-      { name: "Cadeira extensora", series: 4, reps: "12", weight: 41, rest: 60, videos: ["https://fitbod.me/exercises/leg-extension"] },
-      { name: "Agachamento no Smith", series: 4, reps: "12", weight: 30, rest: 60, videos: ["https://fitbod.me/exercises/smith-machine-squat"] },
-      { name: "Leg Press 45º", series: 4, reps: "12", weight: 80, rest: 60, videos: ["https://fitbod.me/exercises/leg-press"] },
-      { name: "Flexão de joelho", series: 3, reps: "10", weight: 15, rest: 60, videos: ["https://fitbod.me/exercises/standing-leg-curl"] },
-      { name: "Stiff", series: 3, reps: "12", weight: 54, rest: 60, videos: ["https://fitbod.me/exercises/stiff-legged-deadlift"] },
-      { name: "Panturrilha no Smith", series: 3, reps: "12", weight: 54, rest: 60, videos: ["https://fitbod.me/exercises/smith-machine-calf-raise"] }
-    ]
-  },
-  ombro: {
-    name: "Sexta — Ombros",
-    icon: "fas fa-user-shield",
-    color: "#f59e0b",
-    exercises: [
-      { name: "Manguito rotador", series: 3, reps: "12", weight: 0, rest: 10, videos: ["https://fitbod.me/exercises/loop-band-shoulder-internal-rotation", "https://fitbod.me/exercises/cable-shoulder-external-rotation", "https://fitbod.me/exercises/cable-shoulder-external-rotation-at-90"] },
-      { name: "Elevação lateral", series: 4, reps: "8", weight: 7, rest: 60, videos: ["https://fitbod.me/exercises/dumbbell-shoulder-raise"] },
-      { name: "Single Arm Overhead Press", series: 3, reps: "12", weight: 12, rest: 60, videos: ["https://fitbod.me/exercises/single-arm-overhead-press"] },
-      { name: "Elevação frontal", series: 3, reps: "8+8", weight: 6, rest: 60, videos: ["https://fitbod.me/exercises/dumbbell-front-raise"] },
-      { name: "Elevação unilateral (Cabo)", series: 3, reps: "8+8", weight: 5, rest: 60, videos: ["https://fitbod.me/exercises/cable-lateral-raise"] },
-      { name: "Crucifixo inverso no voador", series: 3, reps: "12", weight: 52, rest: 60, videos: ["https://fitbod.me/exercises/machine-reverse-fly"] },
-      { name: "Encolhimento anterior Smith", series: 3, reps: "15", weight: 30, rest: 60, videos: ["https://fitbod.me/exercises/smith-machine-behind-the-back-shrug"] },
-      { name: "Encolhimento subida Smith", series: 3, reps: "12", weight: 30, rest: 60, videos: ["https://fitbod.me/exercises/smith-machine-upright-row"] }
-    ]
-  },
-  sabado: {
-    name: "Sábado — Tríceps & Bíceps",
-    icon: "fas fa-bolt",
-    color: "#a855f7",
-    exercises: [
-      { name: "Tríceps no pulley", series: 3, reps: "15", weight: 50, rest: 60, videos: ["https://fitbod.me/exercises/cable-tricep-pushdown"] },
-      { name: "Tríceps testa corda pulley", series: 3, reps: "12", weight: 40, rest: 60, videos: ["https://fitbod.me/exercises/tricep-overhead-extension-with-rope"] },
-      { name: "Tríceps corda pulley", series: 3, reps: "12", weight: 35, rest: 60, videos: ["https://fitbod.me/exercises/cable-rope-tricep-extension"] },
-      { name: "Dumbbell Kickbacks + Extension", series: 3, reps: "10", weight: 25, rest: 60, videos: ["https://fitbod.me/exercises/dumbbell-kickbacks", "https://fitbod.me/exercises/standing-dumbbell-tricep-extension"] },
-      { name: "Rosaca direta", series: 3, reps: "10", weight: 26, rest: 60, videos: ["https://fitbod.me/exercises/barbell-curl"] },
-      { name: "Rosaca martelo", series: 3, reps: "8+8", weight: 14, rest: 60, videos: ["https://fitbod.me/exercises/hammer-curls"] },
-      { name: "Unilateral no scott", series: 3, reps: "10", weight: 16, rest: 60, videos: ["https://fitbod.me/exercises/single-arm-preacher-curl"] }
+      { name: "Mesa Flexora", series: 4, reps: "12", weight: 23, rest: 60, videos: ["https://fitbod.me/exercises/lying-hamstrings-curl"] },
+      { name: "Cadeira Flexora", series: 3, reps: "12", weight: 23, rest: 60, videos: ["https://fitbod.me/exercises/seated-leg-curl"] },
+      { name: "Cadeira Extensora", series: 3, reps: "12", weight: 27, rest: 60, videos: ["https://fitbod.me/exercises/leg-extension"] },
+      { name: "Leg Press", series: 3, reps: "12", weight: 85, rest: 90, videos: ["https://fitbod.me/exercises/machine-leg-press"] },
+      { name: "Avanço com Halter", series: 3, reps: "10", weight: 9, rest: 90, videos: ["https://fitbod.me/exercises/dumbbell-lunge"] },
+      { name: "Panturrilha Press", series: 4, reps: "12", weight: 85, rest: 60, videos: ["https://fitbod.me/exercises/calf-press"] }
     ]
   }
 };
